@@ -8,9 +8,11 @@ namespace Ways_DAO.Models
         public int Id { get; set; }
         public string Label { get; set; }
         public int Position { get; set; }
+        
+        public QuestionTypeEnum Type { get; set; }
         public DateTime CreatedAt { get; set; }
         
-        public List<AbstractChoice> Choices { get; set; }
+        public List<Choice> Choices { get; set; }
 
         public Question()
         {
@@ -22,6 +24,11 @@ namespace Ways_DAO.Models
             Label = label;
             Position = position;
             CreatedAt = createdAt;
+        }
+        
+        public enum QuestionTypeEnum
+        {
+            Orientation, Game
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Data;
-using MySqlConnector;
+using System.Data.SqlClient;
 using Ways_DAO.Models;
 
 namespace Ways_DAO.Repositories
@@ -21,12 +21,12 @@ namespace Ways_DAO.Repositories
         {
             Parameter parameter = null;
             request = "select `id`, `name`, `val` from `parameter` where `name`=@name";
-            command = new MySqlCommand(request, connection);
+            command = new SqlCommand(request, connection);
             if (transaction != null)
             {
                 command.Transaction = transaction;
             }
-            command.Parameters.Add(new MySqlParameter("@name", name));
+            command.Parameters.Add(new SqlParameter("@name", name));
 
             if (connection.State != ConnectionState.Open)
                 connection.Open();
@@ -52,13 +52,13 @@ namespace Ways_DAO.Repositories
         public Parameter Update(Parameter element)
         {
             request = "update `parameter` set `name`=@name, `value`=@value where `id`=@id";
-            command = new MySqlCommand(request, connection);
+            command = new SqlCommand(request, connection);
             
             if (transaction != null)
                 command.Transaction = transaction;
             
-            command.Parameters.Add(new MySqlParameter("@name", element.Name));
-            command.Parameters.Add(new MySqlParameter("@value", element.Value));
+            command.Parameters.Add(new SqlParameter("@name", element.Name));
+            command.Parameters.Add(new SqlParameter("@value", element.Value));
             
             if (connection.State != ConnectionState.Open)
                 connection.Open();

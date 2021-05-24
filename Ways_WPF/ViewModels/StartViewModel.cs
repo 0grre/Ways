@@ -1,53 +1,44 @@
 ﻿using System.Windows.Input;
-using System.Windows.Navigation;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using Ways_DAO.Models;
 using Ways_WPF.Services;
+using Question = Ways_WPF.Views.Question;
 
 namespace Ways_WPF.ViewModels
 {
-    public class StartViewModel: ViewModelBase
+    public class StartViewModel : ViewModelBase
     {
+        #region Interfaces
+
         private IFrameNavigationService _navigationService;
         public ICommand NavigateCommand { get; set; }
 
+        #endregion
+
         private User _user;
-        private string _username;
-
-
-        public string Username
-        {
-            get => _username;
-            set
-            {
-                if (_username == value)
-                    return;
-
-                _username = value;
-                RaisePropertyChanged(nameof(Username));
-            }
-        }
 
         public StartViewModel(IFrameNavigationService navigationService)
         {
             _navigationService = navigationService;
             NavigateCommand = new RelayCommand<string>(ActionNavigate);
             _user = _navigationService.Parameter as User;
-            if (_user != null)
-            {
-                Username = _user.UserName;
-            }
         }
 
-        private void ActionNavigate(string page)
+        private void ActionNavigate(string type)
         {
-            switch (page)
+            _navigationService.NavigateTo(nameof(Question), new UserQuestionTypeParameter(_user, type) );
+        }
+        
+        public class UserQuestionTypeParameter
+        {
+            public User User { get; set; }
+            public string Type { get; set; }
+
+            public UserQuestionTypeParameter(User user, string type)
             {
-                case "orientation":
-                    break;
-                case "game":
-                    break;
+                User = user;
+                Type = type;
             }
         }
     }

@@ -13,7 +13,7 @@ namespace Ways_WPF.ViewModels
     public class HomeViewModel : ViewModelBase
     {
         private IFrameNavigationService _navigationService;
-        
+
         private User _candidate;
         private UserRepository _userRepository;
 
@@ -46,10 +46,15 @@ namespace Ways_WPF.ViewModels
             {
                 case "start":
                     if (Username is null)
-                        MessageBox.Show("Please enter a username !", "Fatal Error", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    break;
+                    {
+                        MessageBox.Show("Veuillez renseigner un nom de joueur", "Fatal Error", MessageBoxButton.OK,
+                            MessageBoxImage.Warning);
+                        break;
+                    }
 
-                    //_candidate = _userRepository.Create(new User(Username));
+                    // _candidate = _userRepository.Create(new User(Username));
+                    // _navigationService.NavigateTo(nameof(Start), _candidate);
+
                     _navigationService.NavigateTo(nameof(Start), new User(Username));
 
                     break;

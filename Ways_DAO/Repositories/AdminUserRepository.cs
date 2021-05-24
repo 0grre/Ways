@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using MySqlConnector;
+using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
+
 using Ways_DAO.Models;
 using Ways_DAO.Services;
 using Ways_DAO.Tools;
@@ -19,7 +21,7 @@ namespace Ways_DAO.Repositories
                 $"insert into `admin_user` (`first_name`, `last_name`, `email`, `password`, `created_at`) " +
                 $"values (@firstname, @lastname, @email, @password, @createdAt)";
 
-            command = new MySqlCommand(request, connection);
+            command = new SqlCommand(request, connection);
 
             if (transaction != null)
                 command.Transaction = transaction;
@@ -33,7 +35,7 @@ namespace Ways_DAO.Repositories
             if (connection.State != ConnectionState.Open)
                 connection.Open();
 
-            element.Id = (int) command.LastInsertedId;
+            //element.Id = (int) command.LastInsertedId;
             command.Dispose();
 
             if (connection.State == ConnectionState.Open && transaction == null)
@@ -62,8 +64,8 @@ namespace Ways_DAO.Repositories
             connection = Connection.New;
             
             AdminUser adminUser = null;
-            request = $"select * from `admin_user` where email=@email";
-            command = new MySqlCommand(request, connection);
+            request = $"select * from `admin_user` where `email`=@email";
+            command = new SqlCommand(request, connection);
 
             if (transaction != null)
                 command.Transaction = transaction;

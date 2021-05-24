@@ -2,13 +2,8 @@
 
 namespace Ways_DAO.Models
 {
-    public class GameChoice : AbstractChoice
+    public class GameChoice : Choice
     {
-        public int Value { get; set; }
-
-        public GameChoice(string label, DateTime createdAt, int value) : base(label, createdAt)
-        {
-            Value = value;
-        }
+        public int ValueInPoints { get; set; }
     }
 }

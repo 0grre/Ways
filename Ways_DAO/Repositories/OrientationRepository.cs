@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using MySqlConnector;
+
 using Ways_DAO.Models;
 
 namespace Ways_DAO.Repositories

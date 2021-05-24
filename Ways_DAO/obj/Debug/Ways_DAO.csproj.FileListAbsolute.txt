@@ -7,7 +7,6 @@ C:\Users\jbloup\OneDrive - BORESA\Documents\Projets\WaysRider\Ways\Ways_DAO\bin\
 C:\Users\jbloup\OneDrive - BORESA\Documents\Projets\WaysRider\Ways\Ways_DAO\bin\Debug\GalaSoft.MvvmLight.Platform.dll
 C:\Users\jbloup\OneDrive - BORESA\Documents\Projets\WaysRider\Ways\Ways_DAO\bin\Debug\MailKit.dll
 C:\Users\jbloup\OneDrive - BORESA\Documents\Projets\WaysRider\Ways\Ways_DAO\bin\Debug\MimeKit.dll
-C:\Users\jbloup\OneDrive - BORESA\Documents\Projets\WaysRider\Ways\Ways_DAO\bin\Debug\MySqlConnector.dll
 C:\Users\jbloup\OneDrive - BORESA\Documents\Projets\WaysRider\Ways\Ways_DAO\bin\Debug\System.Buffers.dll
 C:\Users\jbloup\OneDrive - BORESA\Documents\Projets\WaysRider\Ways\Ways_DAO\bin\Debug\System.Memory.dll
 C:\Users\jbloup\OneDrive - BORESA\Documents\Projets\WaysRider\Ways\Ways_DAO\bin\Debug\System.Numerics.Vectors.dll
@@ -25,7 +24,6 @@ C:\Users\jbloup\OneDrive - BORESA\Documents\Projets\WaysRider\Ways\Ways_DAO\bin\
 C:\Users\jbloup\OneDrive - BORESA\Documents\Projets\WaysRider\Ways\Ways_DAO\bin\Debug\MailKit.xml
 C:\Users\jbloup\OneDrive - BORESA\Documents\Projets\WaysRider\Ways\Ways_DAO\bin\Debug\MimeKit.pdb
 C:\Users\jbloup\OneDrive - BORESA\Documents\Projets\WaysRider\Ways\Ways_DAO\bin\Debug\MimeKit.xml
-C:\Users\jbloup\OneDrive - BORESA\Documents\Projets\WaysRider\Ways\Ways_DAO\bin\Debug\MySqlConnector.xml
 C:\Users\jbloup\OneDrive - BORESA\Documents\Projets\WaysRider\Ways\Ways_DAO\bin\Debug\System.Buffers.xml
 C:\Users\jbloup\OneDrive - BORESA\Documents\Projets\WaysRider\Ways\Ways_DAO\bin\Debug\System.Memory.xml
 C:\Users\jbloup\OneDrive - BORESA\Documents\Projets\WaysRider\Ways\Ways_DAO\bin\Debug\System.Numerics.Vectors.xml
@@ -36,3 +34,4 @@ C:\Users\jbloup\OneDrive - BORESA\Documents\Projets\WaysRider\Ways\Ways_DAO\obj\
 C:\Users\jbloup\OneDrive - BORESA\Documents\Projets\WaysRider\Ways\Ways_DAO\obj\Debug\Ways_DAO.csproj.CopyComplete
 C:\Users\jbloup\OneDrive - BORESA\Documents\Projets\WaysRider\Ways\Ways_DAO\obj\Debug\Ways_DAO.dll
 C:\Users\jbloup\OneDrive - BORESA\Documents\Projets\WaysRider\Ways\Ways_DAO\obj\Debug\Ways_DAO.pdb
+C:\Users\jbloup\OneDrive - BORESA\Documents\Projets\WaysRider\Ways\Ways_DAO\bin\Debug\MySql.Data.dll

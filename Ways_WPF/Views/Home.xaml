@@ -26,6 +26,7 @@
         </Style>
         <Style TargetType="Button" x:Key="ButtonLogo">
             <Setter Property="TextBlock.TextAlignment" Value="Center" />
+            <Setter Property="Height" Value="100"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
@@ -45,8 +46,20 @@
     </Page.Resources>
     
     <DockPanel>
-
-        <StackPanel Margin="0 260 0 0" HorizontalAlignment="Center" DockPanel.Dock="Top">
+        <StackPanel Margin="0 0 0 0" HorizontalAlignment="left" DockPanel.Dock="Top">
+            <Button
+                Style="{StaticResource ButtonLogo}"
+                DockPanel.Dock="Bottom"
+                Command="{Binding NavigateCommand}"
+                CommandParameter="admin"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Background="DarkSlateGray" Foreground="WhiteSmoke">
+            
+                <Image Source="..\Assets\logo.png"></Image>
+            </Button>
+        </StackPanel>
+        
+        <StackPanel Margin="0 190 0 0" HorizontalAlignment="Center" DockPanel.Dock="Top">
             <TextBlock HorizontalAlignment="Center" Margin="0 0 0 10" FontSize="50" Foreground="LightSeaGreen">WAYS</TextBlock>
             <Label>Entrez un nom de joueur</Label>
             <TextBox Text="{Binding Username}" Padding="5" Margin="5" Width="200" />
@@ -57,17 +70,5 @@
                 Jouer
             </Button>
         </StackPanel>
-
-        <Button
-            Style="{StaticResource ButtonLogo}"
-            DockPanel.Dock="Bottom"
-            Command="{Binding NavigateCommand}"
-            CommandParameter="admin"
-            Padding="10" Margin="10"
-            HorizontalAlignment="Left" VerticalAlignment="Top"
-            Background="DarkSlateGray" Foreground="WhiteSmoke">
-            
-            <Image Source="..\Assets\logo.png"></Image>
-        </Button>
     </DockPanel>
 </Page>

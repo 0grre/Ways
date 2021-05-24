@@ -6,7 +6,7 @@ namespace Ways_DAO.Models
     {
         public DateTime CreatedAt { get; set; }
         
-        public Questionnaire Questionnaire { get; set; }
+        public User User { get; set; }
         public GameChoice GameChoice { get; set; }
         public OrientationChoice OrientationChoice { get; set; }
 
@@ -15,16 +15,16 @@ namespace Ways_DAO.Models
             CreatedAt = DateTime.Now;
         }
 
-        public Answer(Questionnaire questionnaire, GameChoice choice)
+        public Answer(User user, GameChoice choice)
         {
-            Questionnaire = questionnaire;
+            User = user;
             GameChoice = choice;
             CreatedAt = DateTime.Now;
         }
 
-        public Answer(Questionnaire questionnaire, OrientationChoice choice)
+        public Answer(User user, OrientationChoice choice)
         {
-            Questionnaire = questionnaire;
+            User = user;
             OrientationChoice = choice;
             CreatedAt = DateTime.Now;
         }

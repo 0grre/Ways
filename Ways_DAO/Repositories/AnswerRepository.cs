@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Data;
-using MySqlConnector;
+using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
+
 using Ways_DAO.Models;
 using Ways_DAO.Tools;
 
@@ -10,23 +12,29 @@ namespace Ways_DAO.Repositories
     {
         public Answer Create(Answer element)
         {
+            connection = Connection.New;
+            
             request =
-                $"insert into `answer` (`game_choice_id`, `orientation_choice_id`, `questionnaire_id`, `created_at`) " +
-                "values (@gameChoiceId, @orientationChoiceId, @questionnaireId, @createdAt)";
+                $"insert into `answer` ({(element.GameChoice != null ? "`id_Game_Choice`" : "`id_Orientation_Choice`")}, `user_id`, `created_at`) " +
+                $"values ({(element.GameChoice != null ? "@gameChoiceId" : "@orientationChoiceId")}, @userId, @createdAt)";
 
-            command = new MySqlCommand(request, connection);
+            command = new SqlCommand(request, connection);
 
             if (transaction != null)
                 command.Transaction = transaction;
+            
+            var choiceParameter = element.GameChoice != null
+                ? new MySqlParameter("@gameChoiceId", element.GameChoice.Id)
+                : new MySqlParameter("@orientationChoiceId", element.OrientationChoice.Id);
 
-            command.Parameters.Add(new MySqlParameter("@gameChoiceId", element.GameChoice.Id));
-            command.Parameters.Add(new MySqlParameter("@orientationChoiceId", element.OrientationChoice.Id));
-            command.Parameters.Add(new MySqlParameter("@questionnaireId", element.Questionnaire.Id));
+            command.Parameters.Add(choiceParameter);
+            command.Parameters.Add(new MySqlParameter("@userId", element.User.Id));
             command.Parameters.Add(new MySqlParameter("@createdAt", element.CreatedAt));
 
             if (connection.State != ConnectionState.Open)
                 connection.Open();
 
+            command.ExecuteScalar();
             command.Dispose();
 
             if (connection.State == ConnectionState.Open && transaction == null)
@@ -50,23 +58,23 @@ namespace Ways_DAO.Repositories
             throw new System.NotImplementedException();
         }
 
-        public List<Answer> FindAll(int questionnaireId)
+        public List<Answer> FindAll(int userId)
         {
             List<Answer> answers = new List<Answer>();
-            QuestionnaireRepository questionnaireRepository = new QuestionnaireRepository();
+            UserRepository userRepository = new UserRepository();
             GameChoiceRepository gameChoiceRepository = new GameChoiceRepository();
             OrientationChoiceRepository orientationChoiceRepository = new OrientationChoiceRepository();
 
-            request = $"select `questionnaire_id`, `game_choice_id`, `orientation_choice_id*` ,`a.created_at` " +
+            request = $"select `user_id`, `game_choice_id`, `orientation_choice_id*` ,`a.created_at` " +
                       $"from `answer`" +
-                      $"where `questionnaire_id`=@questionnaireId";
+                      $"where `user_id`=@userId";
 
-                      command = new MySqlCommand(request, connection);
+                      command = new SqlCommand(request, connection);
                       
             if (transaction != null)
                 command.Transaction = transaction;
 
-            command.Parameters.Add(new MySqlParameter("@questionnaireId", questionnaireId));
+            command.Parameters.Add(new MySqlParameter("@userId", userId));
             
             if (connection.State != ConnectionState.Open)
                 connection.Open();
@@ -76,11 +84,12 @@ namespace Ways_DAO.Repositories
             {
                 Answer answer = new Answer()
                 {
-                    Questionnaire = questionnaireRepository.FindElementById(reader.GetInt32(0)),
+                    User = userRepository.FindElementById(reader.GetInt32(0)),
                     GameChoice = gameChoiceRepository.FindElementById(reader.GetInt32(1)),
                     OrientationChoice = orientationChoiceRepository.FindElementById(reader.GetInt32(2)),
                     CreatedAt = reader.GetDateTime(3)
                 };
+                
                 answers.Add(answer);
             }
 

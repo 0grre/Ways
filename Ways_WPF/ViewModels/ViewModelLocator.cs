@@ -15,6 +15,7 @@ namespace Ways_WPF.ViewModels
             SimpleIoc.Default.Register<HomeViewModel>();
             SimpleIoc.Default.Register<StartViewModel>();
             SimpleIoc.Default.Register<AdminLoginViewModel>();
+            SimpleIoc.Default.Register<QuestionViewModel>();
             SetupNavigation();
         }
 
@@ -24,13 +25,14 @@ namespace Ways_WPF.ViewModels
             navigationService.Configure(nameof(Home), new Uri("../Views/Home.xaml", UriKind.Relative));
             navigationService.Configure(nameof(Start), new Uri("../Views/Start.xaml", UriKind.Relative));
             navigationService.Configure(nameof(AdminLogin), new Uri("../Views/AdminLogin.xaml", UriKind.Relative));
+            navigationService.Configure(nameof(Question), new Uri("../Views/Question.xaml", UriKind.Relative));
             SimpleIoc.Default.Register<IFrameNavigationService>(() => navigationService);
         }
         public MainViewModel Main => ServiceLocator.Current.GetInstance<MainViewModel>();
-
         public HomeViewModel HomeViewModel => ServiceLocator.Current.GetInstance<HomeViewModel>();
         public StartViewModel StartViewModel => ServiceLocator.Current.GetInstance<StartViewModel>();
         public AdminLoginViewModel AdminLoginViewModel => ServiceLocator.Current.GetInstance<AdminLoginViewModel>();
+        public QuestionViewModel QuestionViewModel => ServiceLocator.Current.GetInstance<QuestionViewModel>();
 
         /// <summary>
         /// Cleans up all the resources.

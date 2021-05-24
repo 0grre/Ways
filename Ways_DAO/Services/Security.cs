@@ -1,6 +1,7 @@
 ﻿using System;
+using System.Data.SqlClient;
 using System.Security.Cryptography;
-using MySqlConnector;
+
 using Ways_DAO.Models;
 using Ways_DAO.Repositories;
 using Ways_DAO.Tools;
@@ -67,7 +68,7 @@ namespace Ways_DAO.Services
             {
                 throw;
             }
-            catch (MySqlException e)
+            catch (SqlException e)
             {
                 throw;
             }

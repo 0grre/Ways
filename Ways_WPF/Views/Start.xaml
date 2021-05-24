@@ -7,12 +7,12 @@
         mc:Ignorable="d"
         Title="StartWindow" Height="768" Width="1024" DataContext="{Binding  StartViewModel,Source={StaticResource Locator}}">
     <Page.Resources>
-        <Style TargetType="Button" x:Key="RoundButtonDodgerBlue">
+        <Style TargetType="Button" x:Key="RoundButtonLightSeaGreen">
             <Setter Property="TextBlock.TextAlignment" Value="Center" />
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border CornerRadius="4" Background="DodgerBlue">
+                        <Border CornerRadius="4" Background="LightSeaGreen">
                             <ContentPresenter x:Name="contentPresenter"
                                               ContentTemplate="{TemplateBinding ContentTemplate}"
                                               Content="{TemplateBinding Content}"
@@ -24,18 +24,49 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style TargetType="Button" x:Key="ButtonLogo">
+            <Setter Property="TextBlock.TextAlignment" Value="Center" />
+            <Setter Property="Height" Value="100"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="4" >
+                            <ContentPresenter x:Name="contentPresenter"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              Content="{TemplateBinding Content}"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              Margin="{TemplateBinding Padding}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        </Border>
+                        
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Page.Resources>
-    <DockPanel Background="Azure">
-        
-        <StackPanel Margin="0 260 0 0" HorizontalAlignment="Center" DockPanel.Dock="Top">
-            <TextBlock HorizontalAlignment="Center" Margin="0 0 0 10" FontSize="50" Foreground="SlateBlue">Ways</TextBlock>
+    <DockPanel Background="WhiteSmoke">
+        <StackPanel Margin="0 0 0 0" HorizontalAlignment="left" DockPanel.Dock="Top">
+            <Button
+                Style="{StaticResource ButtonLogo}"
+                DockPanel.Dock="Bottom"
+                Command="{Binding NavigateCommand}"
+                CommandParameter="admin"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Background="DarkSlateGray" Foreground="WhiteSmoke">
+            
+                <Image Source="..\Assets\logo.png"></Image>
+            </Button>
+        </StackPanel>
+
+        <StackPanel Margin="0 190 0 0" HorizontalAlignment="Center" DockPanel.Dock="Top">
+            <TextBlock HorizontalAlignment="Center" Margin="0 0 0 10" FontSize="50" Foreground="LightSeaGreen">WAYS</TextBlock>
             <TextBlock Text="{Binding Username, UpdateSourceTrigger=Default, Mode=TwoWay}"/>
-            <Button Style="{StaticResource RoundButtonDodgerBlue}" Command="{Binding NavigateCommand}" CommandParameter="Orientation" Padding="10"
+            <Button Style="{StaticResource RoundButtonLightSeaGreen}" Command="{Binding NavigateCommand}" CommandParameter="Orientation" Padding="10"
                     Foreground="Azure" Margin="5">
                 Test d'orientation
             </Button>
             
-            <Button Style="{StaticResource RoundButtonDodgerBlue}" Command="{Binding NavigateCommand}" CommandParameter="Game" Padding="10"
+            <Button Style="{StaticResource RoundButtonLightSeaGreen}" Command="{Binding NavigateCommand}" CommandParameter="Game" Padding="10"
                     Foreground="Azure" Margin="5">
                 Jeu
             </Button>

@@ -13,7 +13,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border CornerRadius="4" Background="DodgerBlue">
+                        <Border CornerRadius="4" Background="LightSeaGreen">
                             <ContentPresenter x:Name="contentPresenter"
                                               ContentTemplate="{TemplateBinding ContentTemplate}"
                                               Content="{TemplateBinding Content}"
@@ -29,7 +29,7 @@
     
     <DockPanel>
         <StackPanel Margin="0 260 0 0" HorizontalAlignment="Center" DockPanel.Dock="Top">
-            <TextBlock HorizontalAlignment="Center" Margin="0 0 0 10" FontSize="50" Foreground="SlateBlue">Ways</TextBlock>
+            <TextBlock HorizontalAlignment="Center" Margin="0 0 0 10" FontSize="50" Foreground="LightSeaGreen">WAYS admin</TextBlock>
             <Label>Email</Label>
             <TextBox Text="{Binding Email}" Padding="5" Margin="5" Width="200" />
             <Label>Mot de passe</Label>

@@ -1,11 +1,11 @@
 ﻿using System;
+using System.Data.SqlClient;
 using System.Security;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
-using MySqlConnector;
 using Ways_DAO.Models;
 using Ways_DAO.Repositories;
 using Ways_DAO.Services;
@@ -61,7 +61,7 @@ namespace Ways_WPF.ViewModels
             {
                 admin = Security.Login(_email, password);
             }
-            catch (MySqlException e)
+            catch (SqlException e)
             {
                 MessageBox.Show(e.Message, "Fatal Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
