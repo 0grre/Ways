@@ -1,0 +1,47 @@
+<Page x:Class="Ways_WPF.Views.AdminLogin"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:Ways_WPF.Views"
+      mc:Ignorable="d"
+      Title="AdminLogin" Height="768" Width="1024"
+      DataContext="{Binding  AdminLoginViewModel,Source={StaticResource Locator}}">
+    <Page.Resources>
+        <Style TargetType="Button" x:Key="RoundButtonDodgerBlue">
+            <Setter Property="TextBlock.TextAlignment" Value="Center" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="4" Background="DodgerBlue">
+                            <ContentPresenter x:Name="contentPresenter"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              Content="{TemplateBinding Content}"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              Margin="{TemplateBinding Padding}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+    
+    <DockPanel>
+        <StackPanel Margin="0 260 0 0" HorizontalAlignment="Center" DockPanel.Dock="Top">
+            <TextBlock HorizontalAlignment="Center" Margin="0 0 0 10" FontSize="50" Foreground="SlateBlue">Ways</TextBlock>
+            <Label>Email</Label>
+            <TextBox Text="{Binding Email}" Padding="5" Margin="5" Width="200" />
+            <Label>Mot de passe</Label>
+            <PasswordBox Name="PasswordBox" Padding="5" Margin="5" Width="200" />
+
+            <Button Style="{StaticResource RoundButtonDodgerBlue}" 
+                    Command="{Binding LoginCommand}" CommandParameter="{Binding ElementName=PasswordBox}"
+                    Padding="10"
+                    Foreground="Azure" Margin="5">
+                Se Connecter
+            </Button>
+        </StackPanel>
+        
+    </DockPanel>
+</Page>

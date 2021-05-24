@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ways_DAO", "Ways_DAO\Ways_DAO.csproj", "{7D73B325-A7EE-4607-810E-82B30370786A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ways_WPF", "Ways_WPF\Ways_WPF.csproj", "{822F86DE-2B90-43D6-9CEB-00787DB84D99}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7D73B325-A7EE-4607-810E-82B30370786A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D73B325-A7EE-4607-810E-82B30370786A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D73B325-A7EE-4607-810E-82B30370786A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D73B325-A7EE-4607-810E-82B30370786A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{822F86DE-2B90-43D6-9CEB-00787DB84D99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{822F86DE-2B90-43D6-9CEB-00787DB84D99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{822F86DE-2B90-43D6-9CEB-00787DB84D99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{822F86DE-2B90-43D6-9CEB-00787DB84D99}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
